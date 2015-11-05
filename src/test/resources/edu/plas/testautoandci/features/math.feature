@@ -5,9 +5,9 @@ Feature: Math.com Calculator
   I would like to have a simple calculator
 
   Scenario Outline: Simple calculations
-    Given I am using math.com's calculator
+    Given I navigate to 'http://www.math.com/students/calculators/source/basic.htm'
     When I input '<number_a> <operator> <number_b>'
-    Then result is <result>
+    Then the calculation result is <result>
   Examples:
     | number_a | operator | number_b | result   |
     | 5        | +        | 2        | 7        |

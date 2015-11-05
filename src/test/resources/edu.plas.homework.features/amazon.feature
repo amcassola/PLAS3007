@@ -4,28 +4,21 @@ Feature: Searching the Amazon
   As an Amazon user
   I would like to see what is available and buy stuff from the website
 
+  Background:
+    Given I navigate to 'Amazon UK'
 
-  Scenario: Finding a book
-    Given that I am using the Amazon website
+  Scenario: Amazon UK search and basket functionality
     When I search for 'book'
-    Then a list of books for sale is returned
-
-  Scenario Outline: Adding an item to my basket
-    Given that I am using the Amazon website
-    And I have searched for an item
-    And a list of results was returned
-    When I select an item from the results
-    And I add it to my basket
-    Then a confirmation message is displayed
-    Then my basket contains <previous_count> + 1=<new_count> items
-    And the item I just added is present in my basket
-  Examples:
-    | previous_count | new_count |
-    | 0              | 1         |
-    | 1              | 2         |
-    | 23             | 24        |
+    Then a number of results are returned
+    When I select the first result
+    And I add the current item to the Basket
+    Then a message confirming item is added to Basket is shown
+    When I access the Basket
+    Then the Basket contains '1' items
+    And the current item is displayed inside the Basket
+    When I delete the current item from the Basket
+    Then the Basket contains '0' items
 
   Scenario: Emptying my basket
-    Given that I am using the Amazon website
-    When I empty my basket
+    When I empty my shopping basket
     Then the number of items in my basket is 0

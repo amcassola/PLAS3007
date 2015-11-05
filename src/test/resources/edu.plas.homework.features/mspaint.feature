@@ -5,19 +5,16 @@ Feature: Drawing images
   I would like to draw images electronically
 
   Scenario: Colour picking
-    Given I am using MS Paint
+    Given I launch the Microsoft Paint program
     When I want to change the current colour
     Then I pick a new colour from the palette
 
-  Scenario: Drawing a mustard seed
-    Given I am using MS Paint
-    When I want to draw a mustard seed
-    Then I pick a mustard colour from the palette
-    And I select the airbrush tool
-    Then I draw a mustard seed on the canvas
-
-  Scenario: Searching for mustard seed images
-    Given I have drawn a mustard seed using MS Paint
-    And I am using Google images as my search engine
+  Scenario: Paint picture and search for it on Google Images
+    Given I launch the Microsoft Paint program
+    When I select the 'Airbrush' tool
+    And I select the 'Mustard' colour
+    And I draw a 'mustard seed'
+    Then the 'mustard seed' appears on the canvas
+    Given I navigate to Google Images
     When I search for 'mustard seed'
-    Then The mustard seed I drew must look like images returned
+    Then my drawing of 'mustard seed' is similar to the first image on Google Images
