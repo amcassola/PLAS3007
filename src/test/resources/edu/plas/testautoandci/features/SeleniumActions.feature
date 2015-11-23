@@ -30,7 +30,7 @@ Feature: Selenium Actions
   Scenario: IFraming
     Then the first level IFrame contains the text 'This page is displayed in an iframe'
     And the second level IFrame contains the text 'This page is displayed in an iframe with another iframe'
-    And there are '5' horizontal rule lines in the main HTML document
+    And there are '6' horizontal rule lines in the main HTML document
 
   Scenario Outline: Accepting Alerts
     When the 'Press me, press me!' button is clicked
