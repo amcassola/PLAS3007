@@ -8,7 +8,8 @@ Feature: Searching the Amazon
     Given I navigate to 'Amazon UK'
 
   Scenario: Amazon UK search and basket functionality
-    When I search for 'book'
+    Given I navigate to http://www.amazon.co.uk/
+    When I search for 'catch 22'
     Then a number of results are returned
     When I select the first result
     And I add the current item to the Basket
