@@ -1,7 +1,9 @@
 package edu.plas.testautoandci.stepdefinitions;
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
 import edu.plas.testautoandci.driver.Driver;
+import edu.plas.testautoandci.helper.DriverWindowHelper;
 
 /**
  * Write something about this class here
@@ -17,4 +19,9 @@ public class NavigationSteps {
         Driver.getWebDriver().get(site);
     }
 
+
+    @When("^.*window is closed$")
+    public void closeCurrentWindow() throws Throwable {
+        DriverWindowHelper.switchToMainWindow();
+    }
 }
